@@ -1,0 +1,21 @@
+var, let & const
+
+var heutzutage nicht benutzt
+
+mit let kann man values neu zuweisen z.b
+let age = 30;
+age = 31;
+
+console.log(age); //kein fehler
+
+const age = 30;
+age = 31;
+
+console.log(age); //fehlermeldung
+
+immer const nutzen, außer an weis man muss ein value ändern, z.B punktzahl bei einem Spiel
+
+Primitive Datatypes, heißt data ist direkt zugewiesen zum speicher
+
+String, Numbers, Boolean, null, undefined, Symbol (Symbol selten benutzt)
+
