@@ -13,9 +13,489 @@ age = 31;
 
 console.log(age); //fehlermeldung
 
-immer const nutzen, außer an weis man muss ein value ändern, z.B punktzahl bei einem Spiel
+immer const nutzen, außer man weis man muss ein value ändern, z.B punktzahl bei einem Spiel
 
 Primitive Datatypes, heißt data ist direkt zugewiesen zum speicher
 
 String, Numbers, Boolean, null, undefined, Symbol (Symbol selten benutzt)
+
+const name = "John"; // Das ist ein String, Semikolon nicht zwingen notwendig, es geht "" oder ''
+const age = 40; // Number
+const rating = 4.5; // Number
+const isCool = true; // Boolean
+const x = null; // variable, aber nichts ist drinnen
+const y = undefined // man kann was selbst undefined machen
+let z; // undefined
+
+type testen:
+
+console.log(typeof VariablenNamen);
+z.B console.log(typeof age); // Konsole würde Number raus geben
+
+String Cocatenation:
+
+const name = "John"; 
+const age = 40; 
+
+alter weg console.log('My name is' + name + 'and i am' + age);
+
+neuer weg Template String:
+
+console.log(`My name is ${name} and i am ${age}`);
+
+String propertys und Methods:
+
+const s = "hello world!";
+
+console.log(s.length); // 12
+console.log(s.toUpperCase()); // HELLO WORLD!
+console.log(s.toLowerCase()); // hello world!
+console.log(s.substring(0, 5)); // hello
+console.log(s.substring(0, 5).toUpperCase()); // HELL0
+console.log(s.split('')) // zeigt dir jeden Buchstaben so an "h" und auch den abstand im wort " "
+const s = 'technology, computers, it, code';
+console.log(s.split(', ')) // bekommen ein array mit 4 values, "technology", "it" etc.
+
+Arrays variable die meherere values halten:
+
+const number = new Array(1,2,3,4,5); // wenn man new sieht ist es ein konstruktor
+console.log(number); // wir bekommen in der Konsole die zahlen
+
+meisten ohne konstruktor
+
+const fruits = ["apples", "oranges", "pears", 10, true]; // man kann meherere datentypen im array haben
+console.log(fruits); // wir bekommen dir früchte einzeeln aufgelistet
+fruits[3] = "grapes"; // hinzuaddieren
+console.log(fruits[1]); // oranges
+fruits.push("mango"); // besserer weg um sachen am ende zu addiren, weil man nicht immer sieht ie groß ein array ist
+fruits.unshift("strawberries"); // sachen im array am anfang hinzuzufügen
+fruits.pop(); // letzter value im array verschwindet
+console.log(Array,isArray(fruits)); // um zuchecken ob das array ein array ist
+console.log(fruits.indexOf("oranges")); // wir bekommen den index von oranges (2)
+
+object literals:
+
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 39,
+    hobbies: ["music", "sport"],
+    address: {
+        street: "50 main street",
+        city: "Boston",
+        state: "MA"
+    }
+}
+
+console.log(person); // zeigt uns alle values
+console.log(person.firstName); // John
+console.log(person.firstName, person.lastName); // John Doe
+console.log(person.hobbies[1]); // sport
+console.log(person.address.city); // Boston
+
+sachen raus nehmen
+
+const { firstName, lastName, addres: { city }} = person;
+console.log(firstName); // John
+console.log(city); // Boston
+
+properties hinzufügen
+person.email = "john@webmail.de";
+console.log(person); // email ist da
+
+
+const todos = [
+    {
+        id: 1,
+        text: "take out trash",
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: "meeting with boss",
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: "dentist appointment",
+        isCompleted: false
+    },
+];
+
+console.log(todos[1].text); // meeting with boss
+
+JSON BENUTZEN: freeformater.com/jsonformatter
+
+const todoJSON = JSON.strinify(todos);
+console.log(todoJSON); // bekommen JSON String. SO SENDET MAN DATEN ZU EINEM SERVER
+
+FOR LOOP:
+
+for(let i = 0; i < 10; i++) {
+    console.log(i); // solange bis i = 9 ist, weil das die abbruch bedingung ist
+}
+
+for(let i = 0; i <= 10; i++) {
+    console.log(i); // solange bis i = 10 ist, weil hier <= 10 in der abbruchbedingung steht
+}
+
+for(let i = 0; i < todos.lengt; i++) {
+    console.log(i); // itterieren durch array, i = 3, nicht der bestew weg
+}
+
+FOR OF LOOP:
+
+
+
+WHILE LOOP:
+
+let i = 0;
+while(i < 10) {
+    console.log(i); // gibt i bis 9 raus
+    i++;
+}
+
+
+log out todo text, nicht der beste weg um in einem array zu loopen, zB for of loop
+
+for(let i = 0; i < todos.length; i++) {
+    console.log(todos[i].text); 
+}
+
+for of loop
+
+for(let todo of todos) {
+    console.log(todo);
+}
+
+
+// forEach, map, filter
+
+forEach:
+
+todos.forEach(function(todo) {
+    console.log(todo.text);
+});
+
+Map:
+// map returnt ein array
+
+const todoText = todos.map(function(todo) {
+    return todo.text;
+});
+console.log(todoText);
+
+
+Filter:
+
+const todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+});
+console.log(todoCompleted);
+
+
+Man kann andere Array-Methoden dranhängen z.B an "Filter", "Map" dranhängen
+
+// Funktionales programmieren
+
+const todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+}).map(function(todo){
+    return todo.text;
+});
+console.log(todoCompleted);
+
+Conditionals / If-Statments
+
+const x = 10;
+
+if(x == 10) {
+    console.log('x is 10'); // x is 10
+}
+
+== matcht nur den value
+=== matcht den Datatype
+
+const x = '10';
+
+if(x == 10) {
+    console.log('x is 10'); // kein output
+}
+
+const x = 20;
+
+if(x === 10) {
+    console.log('x is 10'); 
+} else {
+    console.log('x is NOT 10'); // x is NOT 10
+}
+
+extra Condition
+
+const x = 2
+
+if(x == 10) {
+    console.log('x is 10'); 
+} else if( x > 10) {
+    console.log('x is greater than 10'); 
+} else {
+    console.log('x is less than 10'); // x is less than 10
+}
+
+
+Multiple Condition
+
+const x = 4;
+const y = 10;
+
+if(x > 5 || y > 10) {
+    console.log('x is mor than 5 or y is more than 10'); // kein ouput
+}
+
+
+const x = 4;
+const y = 11;
+
+if(x > 5 || y > 10) {
+    console.log('x is mor than 5 or y is more than 10'); // ouput
+}
+
+const x = 6;
+const y = 11;
+
+if(x > 5 && y > 10) {
+    console.log('x is mor than 5 and y is more than 10'); // ouput
+}
+
+ternary operator basically short hand if statement, Fragezeichen(?) ist than, doppelpunkt(:) ist else
+
+const x = 10;
+
+const color = x > 10 ? 'red' : 'blue';
+
+console.log(color); // blue
+
+const x = 11;
+
+const color = x > 10 ? 'red' : 'blue';
+
+console.log(color); // red
+
+Switches, anderer weg um condation zu evavluaten
+
+const x = 11;
+
+const color = x > 10 ? 'red' : 'blue';
+
+switch(color) {
+    case 'red':
+        console.log('color is red'); // den ouput bekommen wir
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default: // keins von beidem ist ein match
+        console.log('color is NOT red or blue');
+        break;
+}
+
+
+const x = 11;
+
+const color = 'green';
+
+switch(color) {
+    case 'red':
+        console.log('color is red'); 
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default: // keins von beidem ist ein match
+        console.log('color is NOT red or blue'); // den ouput bekommen wir
+        break;
+}
+
+
+
+
+
+
+
+
+Funktionen
+
+function addNums(num1, num2) {
+    console.log(num1 + num2); // kein puput, weil wir die funktion nicht gerufen haben
+}
+
+
+function addNums(num1, num2) {
+    console.log(num1 + num2); 
+}
+
+addNums(5,4); // 9
+
+mit funktionen kann man default values für den paraneter setzen
+
+function addNums(num1 = 1, num2 = 1) {
+    console.log(num1 + num2); // 
+}
+
+addNums(); // 2, weil es die default values nutzt, man kann aber z.B jetzt addNums(5,5); schreiben & man kriegt 10, weil es überschreibt
+
+eigentlich macht kein console.log in einer function sondern ein return
+
+function addNums(num1 = 1, num2 = 1) {
+    return num1 + num2;
+}
+
+console.log(addNums(5,5)); // wenn man was in der konsole haben möchte trotz return macht man es so, hier ist output 10
+
+das in eine arrow function machen, anstatt keyword function man nutzt const und macht es zu einer variable
+
+const addNums = (num1 = 1, num2 = 1) => { // => wichtig
+    return num1 + num2; // 
+}
+
+console.log(addNums(5,5)); // 10
+
+wenn es nur eine expression ist, kann auch schweifende klammer weglassen
+
+const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);  
+
+addNums(5,5); // 10
+
+wenn man was return will, braucht man nicht mal das return keyword
+
+const addNums = (num1 = 1, num2 = 1) => num1 + num2;  
+
+console.log(addNums(5,5)); // 10
+
+wenn man nur einen Parameter hat:
+
+const addNums = num1 = 1 => num1 + 5;  
+
+console.log(addNums(5)); // 10
+
+gut zum nutzen mit forEach:
+
+todos.forEach((todo) => console.log(todo));
+
+
+Object-Orientated Programming:
+
+man kann objects Constructor mit der Construction function, es gibt dafür 2 mögglichkeiten:
+
+1. Construction function mit prtotypes
+
+2.ES6 class
+
+// Constructor Funktion 
+
+function Person (firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date (dob); /7 ändert die ausgabe, anders als nur this.dob = dob;
+}
+
+// Instantiate object
+const person1 = new Person('John', 'Doe', '4-3-1980');
+const person2 = new Person('Mary', 'Smith', '3-6-1970');
+
+console.log(person1); // alle daten 
+console.log(person2.firstName); // Mary
+console.log(person2.dob); // Fri Mar 06  1970 00:00:00 GMT-0500 (Eastern Standard Time) (hätten wir zeit, würde es hier auch stehen)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
