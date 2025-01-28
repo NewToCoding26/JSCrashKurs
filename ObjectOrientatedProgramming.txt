@@ -1,0 +1,59 @@
+Object-Orientated Programming:
+
+man kann objects Constructor mit der Construction function, es gibt dafür 2 mögglichkeiten:
+
+1. Construction function mit prtotypes
+
+2.ES6 class
+
+// Constructor Funktion 
+
+function Person (firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date (dob); /7 ändert die ausgabe, anders als nur this.dob = dob;
+    
+}
+
+// Instantiate object
+const person1 = new Person('John', 'Doe', '4-3-1980');
+const person2 = new Person('Mary', 'Smith', '3-6-1970');
+
+console.log(person1); // alle daten 
+console.log(person2.firstName); // Mary
+console.log(person2.dob); // Fri Mar 06  1970 00:00:00 GMT-0500 (Eastern Standard Time) (hätten wir zeit, würde es hier auch stehen)
+console.log(person2.dob.getFullYear()); // 1970
+console.log(person1.getBirtYear()); // 1980
+console.log(person1.getFullName()); // John Doe
+
+besser weg für Prototypes:
+
+unter der Funktion das schreiben:
+
+person.prototype.getBirtYear = function() {
+        return this.dob.getFullYear();
+}
+
+person.prototype.getFullName = function() {
+        return '${this.fistName} ${this.lastName}';
+}
+console.log(person1); //
+console.log(person2.getFullName()); // Mary Smith
+
+Klassen - es macht das selbe, ist nur schönerer weg um das zu schreiben:
+
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date (dob);
+    }
+
+    getBirtYear() {
+        return this.dob.getFullYear();
+    }
+
+    getFullName() {
+        return '${this.firstName} ${this.lastName}':
+    }
+}

@@ -196,216 +196,31 @@ console.log(todoCompleted);
 
 Man kann andere Array-Methoden dranhängen z.B an "Filter", "Map" dranhängen
 
-// Funktionales programmieren
 
-const todoCompleted = todos.filter(function(todo) {
-    return todo.isCompleted === true;
-}).map(function(todo){
-    return todo.text;
-});
-console.log(todoCompleted);
 
-Conditionals / If-Statments
 
-const x = 10;
 
-if(x == 10) {
-    console.log('x is 10'); // x is 10
-}
 
-== matcht nur den value
-=== matcht den Datatype
 
-const x = '10';
 
-if(x == 10) {
-    console.log('x is 10'); // kein output
-}
 
-const x = 20;
 
-if(x === 10) {
-    console.log('x is 10'); 
-} else {
-    console.log('x is NOT 10'); // x is NOT 10
-}
 
-extra Condition
 
-const x = 2
 
-if(x == 10) {
-    console.log('x is 10'); 
-} else if( x > 10) {
-    console.log('x is greater than 10'); 
-} else {
-    console.log('x is less than 10'); // x is less than 10
-}
 
 
-Multiple Condition
 
-const x = 4;
-const y = 10;
 
-if(x > 5 || y > 10) {
-    console.log('x is mor than 5 or y is more than 10'); // kein ouput
-}
 
 
-const x = 4;
-const y = 11;
 
-if(x > 5 || y > 10) {
-    console.log('x is mor than 5 or y is more than 10'); // ouput
-}
 
-const x = 6;
-const y = 11;
 
-if(x > 5 && y > 10) {
-    console.log('x is mor than 5 and y is more than 10'); // ouput
-}
 
-ternary operator basically short hand if statement, Fragezeichen(?) ist than, doppelpunkt(:) ist else
 
-const x = 10;
 
-const color = x > 10 ? 'red' : 'blue';
 
-console.log(color); // blue
-
-const x = 11;
-
-const color = x > 10 ? 'red' : 'blue';
-
-console.log(color); // red
-
-Switches, anderer weg um condation zu evavluaten
-
-const x = 11;
-
-const color = x > 10 ? 'red' : 'blue';
-
-switch(color) {
-    case 'red':
-        console.log('color is red'); // den ouput bekommen wir
-        break;
-    case 'blue':
-        console.log('color is blue');
-        break;
-    default: // keins von beidem ist ein match
-        console.log('color is NOT red or blue');
-        break;
-}
-
-
-const x = 11;
-
-const color = 'green';
-
-switch(color) {
-    case 'red':
-        console.log('color is red'); 
-        break;
-    case 'blue':
-        console.log('color is blue');
-        break;
-    default: // keins von beidem ist ein match
-        console.log('color is NOT red or blue'); // den ouput bekommen wir
-        break;
-}
-
-
-
-
-
-
-
-
-Funktionen
-
-function addNums(num1, num2) {
-    console.log(num1 + num2); // kein puput, weil wir die funktion nicht gerufen haben
-}
-
-
-function addNums(num1, num2) {
-    console.log(num1 + num2); 
-}
-
-addNums(5,4); // 9
-
-mit funktionen kann man default values für den paraneter setzen
-
-function addNums(num1 = 1, num2 = 1) {
-    console.log(num1 + num2); // 
-}
-
-addNums(); // 2, weil es die default values nutzt, man kann aber z.B jetzt addNums(5,5); schreiben & man kriegt 10, weil es überschreibt
-
-eigentlich macht kein console.log in einer function sondern ein return
-
-function addNums(num1 = 1, num2 = 1) {
-    return num1 + num2;
-}
-
-console.log(addNums(5,5)); // wenn man was in der konsole haben möchte trotz return macht man es so, hier ist output 10
-
-das in eine arrow function machen, anstatt keyword function man nutzt const und macht es zu einer variable
-
-const addNums = (num1 = 1, num2 = 1) => { // => wichtig
-    return num1 + num2; // 
-}
-
-console.log(addNums(5,5)); // 10
-
-wenn es nur eine expression ist, kann auch schweifende klammer weglassen
-
-const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);  
-
-addNums(5,5); // 10
-
-wenn man was return will, braucht man nicht mal das return keyword
-
-const addNums = (num1 = 1, num2 = 1) => num1 + num2;  
-
-console.log(addNums(5,5)); // 10
-
-wenn man nur einen Parameter hat:
-
-const addNums = num1 = 1 => num1 + 5;  
-
-console.log(addNums(5)); // 10
-
-gut zum nutzen mit forEach:
-
-todos.forEach((todo) => console.log(todo));
-
-
-Object-Orientated Programming:
-
-man kann objects Constructor mit der Construction function, es gibt dafür 2 mögglichkeiten:
-
-1. Construction function mit prtotypes
-
-2.ES6 class
-
-// Constructor Funktion 
-
-function Person (firstName, lastName, dob) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.dob = new Date (dob); /7 ändert die ausgabe, anders als nur this.dob = dob;
-}
-
-// Instantiate object
-const person1 = new Person('John', 'Doe', '4-3-1980');
-const person2 = new Person('Mary', 'Smith', '3-6-1970');
-
-console.log(person1); // alle daten 
-console.log(person2.firstName); // Mary
-console.log(person2.dob); // Fri Mar 06  1970 00:00:00 GMT-0500 (Eastern Standard Time) (hätten wir zeit, würde es hier auch stehen)
 
 
 

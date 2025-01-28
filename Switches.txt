@@ -1,0 +1,34 @@
+Switches, anderer weg um condation zu evavluaten
+
+const x = 11;
+
+const color = x > 10 ? 'red' : 'blue';
+
+switch(color) {
+    case 'red':
+        console.log('color is red'); // den ouput bekommen wir
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default: // keins von beidem ist ein match
+        console.log('color is NOT red or blue');
+        break;
+}
+
+
+const x = 11;
+
+const color = 'green';
+
+switch(color) {
+    case 'red':
+        console.log('color is red'); 
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default: // keins von beidem ist ein match
+        console.log('color is NOT red or blue'); // den ouput bekommen wir
+        break;
+}

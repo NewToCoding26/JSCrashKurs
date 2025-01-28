@@ -1,0 +1,58 @@
+Funktionen
+
+function addNums(num1, num2) {
+    console.log(num1 + num2); // kein puput, weil wir die funktion nicht gerufen haben
+}
+
+
+function addNums(num1, num2) {
+    console.log(num1 + num2); 
+}
+
+addNums(5,4); // 9
+
+mit funktionen kann man default values für den paraneter setzen
+
+function addNums(num1 = 1, num2 = 1) {
+    console.log(num1 + num2); // 
+}
+
+addNums(); // 2, weil es die default values nutzt, man kann aber z.B jetzt addNums(5,5); schreiben & man kriegt 10, weil es überschreibt
+
+eigentlich macht kein console.log in einer function sondern ein return
+
+function addNums(num1 = 1, num2 = 1) {
+    return num1 + num2;
+}
+
+console.log(addNums(5,5)); // wenn man was in der konsole haben möchte trotz return macht man es so, hier ist output 10
+
+das in eine arrow function machen, anstatt keyword function man nutzt const und macht es zu einer variable
+
+const addNums = (num1 = 1, num2 = 1) => { // => wichtig
+    return num1 + num2; // 
+}
+
+console.log(addNums(5,5)); // 10
+
+wenn es nur eine expression ist, kann auch schweifende klammer weglassen
+
+const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);  
+
+addNums(5,5); // 10
+
+wenn man was return will, braucht man nicht mal das return keyword
+
+const addNums = (num1 = 1, num2 = 1) => num1 + num2;  
+
+console.log(addNums(5,5)); // 10
+
+wenn man nur einen Parameter hat:
+
+const addNums = num1 = 1 => num1 + 5;  
+
+console.log(addNums(5)); // 10
+
+gut zum nutzen mit forEach:
+
+todos.forEach((todo) => console.log(todo));

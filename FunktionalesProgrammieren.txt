@@ -1,0 +1,84 @@
+// Funktionales programmieren
+
+const todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+}).map(function(todo){
+    return todo.text;
+});
+console.log(todoCompleted);
+
+Conditionals / If-Statments
+
+const x = 10;
+
+if(x == 10) {
+    console.log('x is 10'); // x is 10
+}
+
+== matcht nur den value
+=== matcht den Datatype
+
+const x = '10';
+
+if(x == 10) {
+    console.log('x is 10'); // kein output
+}
+
+const x = 20;
+
+if(x === 10) {
+    console.log('x is 10'); 
+} else {
+    console.log('x is NOT 10'); // x is NOT 10
+}
+
+extra Condition
+
+const x = 2
+
+if(x == 10) {
+    console.log('x is 10'); 
+} else if( x > 10) {
+    console.log('x is greater than 10'); 
+} else {
+    console.log('x is less than 10'); // x is less than 10
+}
+
+
+Multiple Condition
+
+const x = 4;
+const y = 10;
+
+if(x > 5 || y > 10) {
+    console.log('x is mor than 5 or y is more than 10'); // kein ouput
+}
+
+
+const x = 4;
+const y = 11;
+
+if(x > 5 || y > 10) {
+    console.log('x is mor than 5 or y is more than 10'); // ouput
+}
+
+const x = 6;
+const y = 11;
+
+if(x > 5 && y > 10) {
+    console.log('x is mor than 5 and y is more than 10'); // ouput
+}
+
+ternary operator basically short hand if statement, Fragezeichen(?) ist than, doppelpunkt(:) ist else
+
+const x = 10;
+
+const color = x > 10 ? 'red' : 'blue';
+
+console.log(color); // blue
+
+const x = 11;
+
+const color = x > 10 ? 'red' : 'blue';
+
+console.log(color); // red

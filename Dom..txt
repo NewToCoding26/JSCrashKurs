@@ -1,0 +1,9 @@
+console.log(window); // window object ist das parent object vom browser
+window.alert(1); ist das selbe iwe alert(1);
+
+// Single Element
+
+document.getElementById('my-form'); 
+
+
+// Multiple Element
