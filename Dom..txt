@@ -1,9 +1,90 @@
+Sachen vom DOM auswahlen:
+
 console.log(window); // window object ist das parent object vom browser
 window.alert(1); ist das selbe iwe alert(1);
 
 // Single Element
 
-document.getElementById('my-form'); 
+console.log(document.getElementById('my-form')); oder
+const form = document.getElementById('my-form'); 
+console.log(form);
+
+neuerer weg
+console.log(document.querySelector('.container')); 
+
+es macht nur einezelt, also wenn ich in die klammer 'h1' schreibe, nimmt es nur den ersten h1
+console.log(document.querySelector('h1')); 
 
 
 // Multiple Element
+
+console.log(document.querySelectorAll('.item')); // gibt es uns eine Nodelist
+console.log(document.getElementByClassName('item')); // gibt uns html collection (man kann nicht direkt array methoden darauf nutzen)
+console.log(document.getElementByTagName('li')); // gibt uns html collection (man kann nicht direkt array methoden darauf nutzen)
+
+// eher querySelector und querySelectorAll alls nutzen manchmal auch getElementById
+
+
+durch items loopen:
+
+const items = document.querySelectorAll('.item);
+
+items.forEach((item) => console.log(item)); // durchlaufen und durchsuchen der einzelnen listenelemente
+
+
+DOM MANIPULATING:
+const ul = document.querySelector('.items');
+
+ul.remove(); // ul is gone
+ul.lastElementChild.remove(); // letes item ist weg (hier item 3)
+
+ul.firstElementChild.textContent = 'Hello'; // erstes item sagt jetzt "Hallo" anstatt "Item 3"
+ul.children[1].innerText = 'Brad'; // zweites item sagt jetzt "Brad" und nicht "Item 2"
+ul.lastElementChild.innerHTML = '<h1>Hello</h1>'; // html vom letzten geändert, hier die Schriftgröße und Hello reingeschrieben
+
+style ändern:
+
+const btn = document.querySelector('.btn');
+btn.style.background = 'red'; // es ist jetzt rot
+
+
+events:
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', (e) => { // man kann auch n0rmale funktion reichshrieben, hier mit arrow-funktion
+    e.preventDefault(); // sorgt dafür, dass man einmal klickt und es blaibt und es nicht submittet
+    console.log('click'); 
+}); 
+
+btn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    console.log('e'); // man sieht das komplette event object
+}); 
+
+btn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    console.log('e.target'); // gibt das richtige element, af was dea event on ist ( der button)
+});
+
+btn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    console.log('e.target.className'); // ouput ist btn
+});
+
+wenn man klickt soll sich was ändern
+
+btn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    document.querySelector('#my-form').style.background = '#ccc'; // backgroundColor ändert sich
+    document.querySelector('body').classList.add('bg-dark'); // ändert den body background
+    doc
+});
+
+
+
+
+
+
+
+
+
