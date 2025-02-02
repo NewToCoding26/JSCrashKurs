@@ -77,8 +77,19 @@ btn.addEventListener('click', (e) => {
     e.preventDefault(); 
     document.querySelector('#my-form').style.background = '#ccc'; // backgroundColor ändert sich
     document.querySelector('body').classList.add('bg-dark'); // ändert den body background
-    doc
+    document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>'; // letztes item wir dzu hallo mit den ganzen style changes
 });
+
+unhover:
+
+btn.addEventListener('mouseover', (e) => { // wenn man über button hovert kommt jetzt die änderung, nicht wenn man klickt (mouseout, wenn es beuim raus hovern passieren soll)
+    e.preventDefault(); 
+    document.querySelector('#my-form').style.background = '#ccc'; // backgroundColor ändert sich
+    document.querySelector('body').classList.add('bg-dark'); // ändert den body background
+    document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>'; // letztes item wir dzu hallo mit den ganzen style changes
+});
+
+
 
 
 

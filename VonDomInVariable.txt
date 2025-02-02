@@ -1,0 +1,37 @@
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+    e.preventDefault();
+
+    console.log(nameInput.value); // wenn man den name submittet, kriegt man das element (mit .value kriegt man den value)
+}
+
+form Validation, man erst submitten können, wenn beide felder ausgefüllt sind:
+
+function onSubmit(e) {
+    e.preventDefault();
+
+    if(nameInput.value === '' || emailInput.value === '') {
+        msg.classList.add('error'); // mach die error ytle msg, die man schon in css hat
+        msg.innerHTML = 'Please enter all fields'; // kimmt die error warnung
+
+        setTimeOut(() => msg.remove(), 3000); // sorgt dafür, dass die wrror msg nach 3 sek verschwindet
+    }else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`)) // fügt li node hinzu
+
+        userList.appendChild(li); // hängt li an userslist an, sodass es im DOM angezeigt wird
+
+        // clear the fields
+        nameInput.value = '';
+        emailInput.value = '';
+
+    }
+}
