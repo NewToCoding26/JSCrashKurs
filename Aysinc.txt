@@ -1,0 +1,11 @@
+Synchron ist, wenn etwas passiert, aber man nicht warten möchte bis es fertig ist um an seinem program zu arbeiten, man möchte dran ar-
+beiten während es passiert, also asynchron.
+
+Asynchrones Programmieren, ist wichtg für JS, weil wir often anfrage an Server machen, die woaders sind und es dauert ein paar sekunden,
+bis man seine Daten wieder hat und man will, dass das program während der wartezeit weiter arbeitet und nicht wartet. Das ist das Stich-
+wort für Callbacks, welche oft genutzt wurden, bis ES6 kam, als Promises eingeführt wurden.
+
+Promises geben die einen Eleganteren weg um Asynchrone daten zu benutzen.
+
+In ES7 wurde Async Await reingebracht, was sich immernoch mit Promises beschäftigt mur anders, man beschäftigt sich mit der response in 
+einem mehr Eleganteren weg und es sieht mehr nach Synchrones Programmieren aus.

@@ -1,0 +1,48 @@
+Pope blogposts auf einem Server nachahmen.
+
+const posts = [
+    { title: 'Post One', body: 'This is post one' },
+    { title: 'Post Two', body: 'This is post two' },
+];
+
+kan vom server par sekunden dauern, deshalb setTimeOut
+
+function getPosts(){
+    setTimeOut(function(){       // setTimeOut kriegt eine Callback function
+
+    }, 1000):   // wie lange man es delayen möchte
+}
+
+es geht auch arrow function
+
+function getPosts(){
+    setTimeOut(() => {       // setTimeOut kriegt eine Callback function
+        let output = '';
+        posts.forEach((post, index) => {  // man posts vom array, dann loopt man durch, es muss nicht zwingend post heißen in der klammer, index auch optional
+            output += `<li>${post.title}</li>`; // wir tun die posts in die output variable
+        });
+        document.body.innerHTML = output; // und dann wird auf die page geoutputet mit dieser line
+    }, 1000):   // wie lange man es delayen möchte
+}
+
+function createPost(post, callback) { // wir wollen das die callback funtion, direkt nach dem push aufgerufen wird, weshalb man aus getPosts den Callback macht
+    setTimeOut(() => {
+        posts.push(post); // man nimmt post und pusht auf den post array den neuen post;
+        callback();
+    }, 2000); // 2 sekunden delay
+}
+
+
+getPosts();     // nach einer sekunde nach dem man getPosts() gecshrieben hat, werden die posts geladen (wegen dem delay)
+                   
+man muss aus getPosts den Callback machen, damit es direkt nach push aufgerufen wird 
+Man kann die getPosts() zeile löscehn und in createPost schreiben     
+ 
+Wir möchten den Post kriegen, und dann einen neuen machen
+
+createPost({ title: 'Post Three', body: 'This ispost three' }, getPosts); 
+
+wir sehen nicht post three, weil createPost länger braucht als getPosts, deshalb kommet Asynchrones Programmieren ins spiel z.B Callbacks 
+
+wenn man getPosts in createPost schreib, sieht man alle Posts, weil es 2 Sekunden gewartet hat, es hat gewartet, weil es musste warten um
+den post zu createn, bevor es die callback funktion aufruft, es musste pushen und dann den callback aufrufen 
